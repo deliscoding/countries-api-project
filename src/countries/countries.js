@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { Countries } from './countries/countries';
 
-export default class App extends Component {
-
+export class Countries extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,24 +21,22 @@ export default class App extends Component {
       })
   }
   render() {
-    var { isLoaded, items } = this.state;
-    if (!isLoaded) {
-      return <div>Loading...</div>;
-    }
-    else {
-      return (<>
-        <Countries />
-        <div className="App">
-          <ul>
+    let { isLoaded, items } = this.state;
+
+    return (
+      <div>
+        <div className="container">
+          <h1>Regions Dropdown list</h1>
+          <select id="regions" name="regions">
             {items.map(item => (
-              <li key={item.id}>
-                {item.name.common}
-              </li>
-            ))};
-          </ul>
+              <option key={item.id}>
+                {item.region}
+              </option>
+            ))}
+          </select>
+
         </div>
-      </>
-      );
-    }
+      </div>
+    )
   }
 }
