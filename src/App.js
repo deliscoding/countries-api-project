@@ -29,7 +29,13 @@ export default class App extends Component {
     else {
       return (
         <div className="App">
-          Data has been loaded
+          <ul>
+            {items.map(item => (
+              <li key={item.id}>
+                {item.name.common}
+              </li>
+            ))};
+          </ul>
         </div>
       );
     }
